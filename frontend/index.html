@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Weather Dashboard</h1>
+      </header>
+
+      <main>
+        <section class="search-section">
+          <form id="search-form" class="search-form">
+            <input
+              type="text"
+              id="city-input"
+              name="city"
+              placeholder="Enter city name (e.g., Boston, London, Tokyo)"
+              autocomplete="off"
+              required
+            />
+            <button type="submit" id="search-button">Search</button>
+          </form>
+        </section>
+
+        <section id="weather-content" class="weather-content">
+          <!-- Weather data will be rendered here -->
+          <div id="loading-state" class="loading-state hidden">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+          </div>
+
+          <div id="error-state" class="error-state hidden">
+            <p class="error-icon">⚠️</p>
+            <p id="error-message" class="error-message"></p>
+            <button id="retry-button" class="retry-button">Try Again</button>
+          </div>
+
+          <div id="weather-data" class="weather-data hidden">
+            <!-- Current weather -->
+            <div class="current-weather">
+              <div class="location">
+                <h2 id="location-name"></h2>
+                <p id="location-coords" class="coords"></p>
+              </div>
+              <div class="current-conditions">
+                <img id="current-icon" src="" alt="Weather condition" class="weather-icon" />
+                <div class="current-temp">
+                  <span id="current-temp-value" class="temp-value"></span>
+                </div>
+                <div class="current-details">
+                  <p id="current-condition" class="condition"></p>
+                  <p id="current-feels-like" class="feels-like"></p>
+                  <p id="current-humidity" class="humidity"></p>
+                  <p id="current-wind" class="wind"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Forecast -->
+            <div class="forecast-section">
+              <h3>7-Day Forecast</h3>
+              <div id="forecast-list" class="forecast-list">
+                <!-- Forecast cards will be rendered here -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Weather data provided by <a href="https://www.weatherapi.com/" target="_blank" rel="noopener">WeatherAPI.com</a></p>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
